@@ -13,15 +13,39 @@
 <form class="subform"  method="post" action="submit.html">
 	<p>
 		<label for="name" class="label">What is your name?</label>
-		<input type="text" name="name" id="name">
+		<input type="text" name="name" id="name" onkeyup="checkName()">
 	</p>
+
+	<script>
+		function checkName(){
+        var regExp = new RegExp('<');
+        if(regExp.test(document.getElementById('name').value)){
+            document.getElementById('name').style.backgroundColor='red';
+        } else{
+            document.getElementById('name').style.backgroundColor='';
+        }
+    }
+	</script>
+
 	<p>
 		<label for="email" class="label">What is your email address?</label>
-		<input type="text" name="email" id="email">
+		<input type="text" name="email" id="email" onkeyup="checkEmail()">
 	</p>
+	<script>
+        function checkAge(age){
+            var regExp = new RegExp('');
+            if(regExp.test(document.getElementById('age').value)){
+                document.getElementById('age').style.backgroundColor='red';
+            } else{
+                document.getElementById('age').style.backgroundColor='';
+            }
+        }
+	</script>
+
+
 	<p>
 		<label for="age" class="label">What is your age?</label>
-		<input type="text" name="age" id="age">
+		<input type="text" name="age" id="age" onkeyup="checkAge()">
 	</p>
 	<p><span class="label">Rate your apartment farming skills</span>
 		<label>
@@ -51,6 +75,7 @@
 	<p>
 		<input type="submit" value="Subscribe">
 	</p>
+
 </form>
 </body>
 </html>
