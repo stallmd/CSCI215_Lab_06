@@ -29,27 +29,41 @@
 
 	<p>
 		<label for="email" class="label">What is your email address?</label>
-		<input type="text" name="email" id="email" onkeyup="checkEmail()">
+		<input type="text" name="email" id="email" >
+	</p>
+
+
+	<p>
+		<label for="age" class="label">What is your age?</label>
+		<input type="text" name="age" id="age" onkeyup="checkAge()" onclick="checkEmail()">
 	</p>
 
 	<script>
         function checkEmail(email){
-            var regExp = new RegExp('/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/');
+            var regExp = new RegExp('[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?');
             if(regExp.test(document.getElementById('email').value)){
-                document.getElementById('email').style.backgroundColor='';
+                return (true);
             } else{
-                document.getElementById('email').style.backgroundColor='red';
+                alert("You have entered an invalid email address!");
+                return (false);
+            }
+        }
+	</script>
+
+	<script>
+        function checkAge(age){
+            //var regEx = new RegExp('^(([0-9][1-9])|([1-9][0-9])|[1-9])$');//
+            var regExp = new RegExp('isNaN(age) || age < 1 || age > 100');
+            if(regExp.test(document.getElementById('age').value)) {
+                document.getElementById('age').style.backgroundColor = 'red';
+            }
+            else{
+                document.getElementById('age').style.backgroundColor='';
             }
         }
 	</script>
 
 
-
-
-	<p>
-		<label for="age" class="label">What is your age?</label>
-		<input type="text" name="age" id="age" onkeyup="checkAge()">
-	</p>
 	<p><span class="label">Rate your apartment farming skills</span>
 		<label>
 			<input name="skill" type="radio" value="novice">
@@ -62,18 +76,6 @@
 			Advanced</label>
 	</p>
 
-	<script>
-        function checkAge(age){
-            var regEx = new RegExp('^(([0-9][1-9])|([1-9][0-9])|[1-9])$');
-            //var regExp = new RegExp('isNaN(age) || age < 1 || age > 100');//
-            if(regExp.test(document.getElementById('age').value)) {
-                document.getElementById('age').style.backgroundColor = 'red';
-            }
-            else{
-                document.getElementById('age').style.backgroundColor='';
-            }
-        }
-	</script>
 
 	<p>
 		<label for="refer" class="label">Where did you hear about us? </label>
