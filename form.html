@@ -31,16 +31,19 @@
 		<label for="email" class="label">What is your email address?</label>
 		<input type="text" name="email" id="email" onkeyup="checkEmail()">
 	</p>
+
 	<script>
-        function checkAge(age){
-            var regExp = new RegExp('');
-            if(regExp.test(document.getElementById('age').value)){
-                document.getElementById('age').style.backgroundColor='red';
+        function checkEmail(email){
+            var regExp = new RegExp('/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/');
+            if(regExp.test(document.getElementById('email').value)){
+                document.getElementById('email').style.backgroundColor='';
             } else{
-                document.getElementById('age').style.backgroundColor='';
+                document.getElementById('email').style.backgroundColor='red';
             }
         }
 	</script>
+
+
 
 
 	<p>
@@ -58,6 +61,20 @@
 			<input name="skill" type="radio" value="advanced">
 			Advanced</label>
 	</p>
+
+	<script>
+        function checkAge(age){
+            var regEx = new RegExp('^(([0-9][1-9])|([1-9][0-9])|[1-9])$');
+            //var regExp = new RegExp('isNaN(age) || age < 1 || age > 100');//
+            if(regExp.test(document.getElementById('age').value)) {
+                document.getElementById('age').style.backgroundColor = 'red';
+            }
+            else{
+                document.getElementById('age').style.backgroundColor='';
+            }
+        }
+	</script>
+
 	<p>
 		<label for="refer" class="label">Where did you hear about us? </label>
 		<select name="refer" id="refer">
